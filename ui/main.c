@@ -1489,7 +1489,7 @@ void UI_DisplayMain(void)
 					}
 				#endif
 			#endif
-			//}			
+			}			
 
 			#ifdef ENABLE_SHOW_CHARGE_LEVEL
 				else
