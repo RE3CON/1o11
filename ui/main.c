@@ -1488,7 +1488,8 @@ void UI_DisplayMain(void)
 						UI_PrintStringSmall(str, 2, 0, 3);
 					}
 				#endif
-			//#endif
+			#endif
+			}			
 
 			#ifdef ENABLE_SHOW_CHARGE_LEVEL
 				else
