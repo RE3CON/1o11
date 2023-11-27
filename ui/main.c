@@ -1489,7 +1489,7 @@ void UI_DisplayMain(void)
 					}
 				#endif
 			#endif
-			}			
+			//}			
 
 			#ifdef ENABLE_SHOW_CHARGE_LEVEL
 				else
@@ -1509,9 +1509,9 @@ void UI_DisplayMain(void)
 		}
 	}
 
-	#ifdef ENABLE_PANADAPTER
-		UI_DisplayMain_pan(false);
-	#endif
+	//#ifdef ENABLE_PANADAPTER
+	//	UI_DisplayMain_pan(false);
+	//#endif
 
 	ST7565_BlitFullScreen();
 }
