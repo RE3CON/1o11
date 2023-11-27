@@ -27,8 +27,8 @@ ENABLE_NOAA                      := 0
 ENABLE_VOICE                     := 0
 ENABLE_MUTE_RADIO_FOR_VOICE      := 0
 # Tx on Voice 1.0 kB
-ENABLE_VOX                       := 1
-ENABLE_VOX_MORE_SENSITIVE        := 1
+ENABLE_VOX                       := 0
+ENABLE_VOX_MORE_SENSITIVE        := 0
 # Tx Alarm 600 B
 ENABLE_ALARM                     := 0
 ENABLE_TX1750                    := 1
@@ -38,8 +38,8 @@ ENABLE_MDC1200_SHOW_OP_ARG       := 1
 ENABLE_MDC1200_SIDE_BEEP         := 1
 ENABLE_PWRON_PASSWORD            := 0
 ENABLE_RESET_AES_KEY             := 0
-ENABLE_BIG_FREQ                  := 1
-ENABLE_DTMF_LIVE_DECODER         := 1
+ENABLE_BIG_FREQ                  := 0
+ENABLE_DTMF_LIVE_DECODER         := 0
 ENABLE_SHOW_FREQS_CHAN           := 1
 # smaa bolf 580 B
 ENABLE_SMALL_BOLD                := 1
@@ -48,9 +48,9 @@ ENABLE_SMALLEST_FONT             := 1
 # trim trailing 44 B
 ENABLE_TRIM_TRAILING_ZEROS       := 0
 ENABLE_WIDE_RX                   := 1
-ENABLE_TX_WHEN_AM                := 0
+ENABLE_TX_WHEN_AM                := 1
 # Freq calibration 188 B
-ENABLE_F_CAL_MENU                := 1
+ENABLE_F_CAL_MENU                := 0
 ENABLE_TX_UNLOCK_MENU            := 1
 #ENABLE_TX_POWER_CAL_MENU        := 1
 ENABLE_TX_POWER_FIX              := 1
@@ -80,10 +80,10 @@ ENABLE_RX_SIGNAL_BAR             := 1
 # Tx Audio Bar 300 B
 ENABLE_TX_AUDIO_BAR              := 1
 # Side Button Menu 300 B
-ENABLE_SIDE_BUTT_MENU            := 1
+ENABLE_SIDE_BUTT_MENU            := 0
 # Key Lock 400 B
 ENABLE_KEYLOCK                   := 0
-ENABLE_PANADAPTER                := 1
+ENABLE_PANADAPTER                := 0
 ENABLE_PANADAPTER_PEAK_FREQ      := 0
 # single VFO 1.4 kB
 ENABLE_SINGLE_VFO_CHAN           := 0
