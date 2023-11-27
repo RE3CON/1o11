@@ -1454,57 +1454,57 @@ void UI_DisplayMain(void)
 			else
 		#endif
 
-		if (rx || gCurrentFunction == FUNCTION_FOREGROUND || gCurrentFunction == FUNCTION_POWER_SAVE)
+		if (rx || g_current_function == FUNCTION_FOREGROUND || g_current_function == FUNCTION_POWER_SAVE)
 		{
-			#if 1
-				if (gSetting_live_DTMF_decoder && gDTMF_RX_live[0] != 0)
-				{	// show live DTMF decode
-					const unsigned int len = strlen(gDTMF_RX_live);
-					const unsigned int idx = (len > (17 - 5)) ? len - (17 - 5) : 0;  // limit to last 'n' chars
+			#ifdef ENABLE_DTMF_LIVE_DECODER
+				#if 1
+					if (g_eeprom.config.setting.dtmf_live_decoder && g_dtmf_rx_live[0] != 0)
+					{	// show live DTMF decode
+						const unsigned int len = strlen(g_dtmf_rx_live);
+						const unsigned int idx = (len > (17 - 5)) ? len - (17 - 5) : 0;  // limit to last 'n' chars
 
-					if (gScreenToDisplay != DISPLAY_MAIN ||
-						gDTMF_CallState != DTMF_CALL_STATE_NONE)
+						if (g_current_display_screen != DISPLAY_MAIN || g_dtmf_call_state != DTMF_CALL_STATE_NONE)
+							return;
+
+						g_center_line = CENTER_LINE_DTMF_DEC;
+
+						strcpy(str, "DTMF ");
+						strcat(str, g_dtmf_rx_live + idx);
+						UI_PrintStringSmall(str, 2, 0, 3);
+					}
+				#else
+					if (g_eeprom.config.setting.dtmf_live_decoder && g_dtmf_rx_index > 0)
+					{	// show live DTMF decode
+						const unsigned int len = g_dtmf_rx_index;
+						const unsigned int idx = (len > (17 - 5)) ? len - (17 - 5) : 0;  // limit to last 'n' chars
+
+						if (g_current_display_screen != DISPLAY_MAIN || g_dtmf_call_state != DTMF_CALL_STATE_NONE)
+							return;
+
+						g_center_line = CENTER_LINE_DTMF_DEC;
+
+						strcpy(str, "DTMF ");
+						strcat(str, g_dtmf_rx + idx);
+						UI_PrintStringSmall(str, 2, 0, 3);
+					}
+				#endif
+			//#endif
+
+			#ifdef ENABLE_SHOW_CHARGE_LEVEL
+				else
+				if (g_charging_with_type_c)
+				{	// show the battery charge state
+					if (g_current_display_screen != DISPLAY_MAIN || g_dtmf_call_state != DTMF_CALL_STATE_NONE)
 						return;
-						
-					center_line = CENTER_LINE_DTMF_DEC;
-					
-					strcpy(String, "DTMF ");
-					strcat(String, gDTMF_RX_live + idx);
-					UI_PrintStringSmall(String, 2, 0, 3);
-				}
-			#else
-				if (gSetting_live_DTMF_decoder && gDTMF_RX_index > 0)
-				{	// show live DTMF decode
-					const unsigned int len = gDTMF_RX_index;
-					const unsigned int idx = (len > (17 - 5)) ? len - (17 - 5) : 0;  // limit to last 'n' chars
 
-					if (gScreenToDisplay != DISPLAY_MAIN ||
-						gDTMF_CallState != DTMF_CALL_STATE_NONE)
-						return;
+					g_center_line = CENTER_LINE_CHARGE_DATA;
 
-					center_line = CENTER_LINE_DTMF_DEC;
-					
-					strcpy(String, "DTMF ");
-					strcat(String, gDTMF_RX + idx);
-					UI_PrintStringSmall(String, 2, 0, 3);
+					sprintf(str, "Charge %u.%02uV %u%%",
+						g_battery_voltage_average / 100, g_battery_voltage_average % 100,
+						BATTERY_VoltsToPercent(g_battery_voltage_average));
+					UI_PrintStringSmall(str, 2, 0, 3);
 				}
 			#endif
-
-#ifdef ENABLE_SHOW_CHARGE_LEVEL
-			else if (gChargingWithTypeC)
-			{	// charging .. show the battery state
-				if (gScreenToDisplay != DISPLAY_MAIN ||
-					gDTMF_CallState != DTMF_CALL_STATE_NONE)
-					return;
-						
-				center_line = CENTER_LINE_CHARGE_DATA;
-					
-				sprintf(String, "Charge %u.%02uV %u%%",
-					gBatteryVoltageAverage / 100, gBatteryVoltageAverage % 100,
-					BATTERY_VoltsToPercent(gBatteryVoltageAverage));
-				UI_PrintStringSmall(String, 2, 0, 3);
-			}
-#endif
 		}
 	}
 
@@ -1515,4 +1515,4 @@ void UI_DisplayMain(void)
 	ST7565_BlitFullScreen();
 }
 
-// ***************************************************************************
+// *************************************************************************** 
