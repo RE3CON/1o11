@@ -1513,7 +1513,7 @@ void UI_DisplayMain(void)
 	//	UI_DisplayMain_pan(false);
 	//#endif
 
-	ST7565_BlitFullScreen();
-}
+	//ST7565_BlitFullScreen();
+
 
 // *************************************************************************** 
