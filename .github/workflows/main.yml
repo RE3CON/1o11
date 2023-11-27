@@ -1,0 +1,69 @@
+name: 'main src release'
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]    
+ 
+  release:
+    types:
+      - published
+ #    - draft
+ #    - prerelease        
+ #    - created     
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+
+    steps:
+     
+    - name: arm-none-eabi-gcc
+      uses: carlosperate/arm-none-eabi-gcc-action@v1
+      with:
+       # release: 'latest'
+       release: '11.3.Rel1'
+       # release: '11.2-2022.02'
+
+    - name: Install Python dependencies
+      run: python3 -m pip install --upgrade pip crcmod
+
+    - name: Checkout
+      uses: actions/checkout@v3
+    #  with:
+    #    fetch-depth: 0
+
+    - name: Submodules
+      run: git submodule update --init --recursive --depth 1
+
+    - name: Make
+      run:  make
+
+    - name: size
+      run:  arm-none-eabi-size firmware
+
+    - name: rename
+      run: mv firmware.packed.bin firmware_packed${{ github.event.release.tag_name }}.bin
+
+    - name: Get the date
+      id: date
+ #    run: echo "::set-output name=date::$(date +'%A %d.%m.%Y %H:%M - %Z')" #>> $GITHUB_OUTPUT
+ #    run: echo "::set-output name=date::$(date +'%Y-%m-%d')"  
+      run: echo "date=$(date +'%A %d.%m.%Y %H:%M - %Z')" >> $GITHUB_OUTPUT
+
+    - name: 'Add unpacked FW to release'
+      uses: svenstaro/upload-release-action@v2
+      with:
+        file: firmware.bin
+        asset_name: ${{ format('firmware_raw_0.{0}.bin', github.run_number) }}
+        tag: ${{ format('release-{0}', github.run_number) }}
+        release_name: ${{ format('Build 0.{0}, {1}', github.run_number, steps.date.outputs.date) }}
+  
+    - name: 'Add packed FW to release'
+      uses: svenstaro/upload-release-action@v2
+      with:
+        file: firmware_packed${{ github.event.release.tag_name }}.bin
+        asset_name: ${{ format('firmware_packed_0.{0}.bin', github.run_number) }}
+        tag: ${{ format('release-{0}', github.run_number) }}
+        release_name: ${{ format('Build 0.{0}, {1}', github.run_number, steps.date.outputs.date) }}
