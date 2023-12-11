@@ -4,6 +4,14 @@ This repository is a cloned and customized version of DualTachyon's open firmwar
 
 https://github.com/DualTachyon/uv-k5-firmware .. a cool achievement !
 
+in addition to OneOfEleven enhancements and changes, 
+
+## RE3CON changes:
+
+- Changed: Full freq range of BK4819 for TX and RX: 14MHz ~ 630MHz and 760MHz ~ 1879 MHz 
+- Added: "ENABLE_TX_UNLOCK" function
+- Added: A 2nd ToneBurst 1050Hz and 1750Hz = PTT + Sidekey 1, PTT + Sidekey 2.
+
 Use this firmware/code ENTIRELY at your own risk. This firmware is totally experimental, and at times will go completely tits up (break your radio).
 
 There is absolutely no guarantee that it will work in any way shape or form on your radio(s), it may even brick your radio(s).
@@ -71,7 +79,7 @@ ENABLE_TRIM_TRAILING_ZEROS       := 1       trim away any trailing zeros on freq
 ENABLE_WIDE_RX                   := 1       full 18MHz to 1300MHz RX (though front-end/PA not designed for full range)
 ENABLE_TX_WHEN_AM                := 0       allow TX (always FM) when RX is set to AM
 ENABLE_F_CAL_MENU                := 0       enable frequency calibration hidden menu
-ENABLE_TX_UNLOCK_MENU            := 0       allow TX everywhere EXCEPT airband (108~137) .. TX harmonic content will cause interference to other services, do so entirely at your own risk !
+ENABLE_TX_UNLOCK_MENU            := 0       allow TX everywhere.. TX harmonic content will cause interference to other services, do so entirely at your own risk !
 ENABLE_TX_POWER_CAL_MENU         := 0       used to compute the TX power register values .. leave at '0'
 ENABLE_TX_POWER_FIX              := 1       fix the TX output power, L ~ 10mW, M ~ 500mW, H ~ 4W, U ~ user settable
 ENABLE_CTCSS_TAIL_PHASE_SHIFT    := 0       standard CTCSS tail phase shift rather than QS's own 55Hz tone method
