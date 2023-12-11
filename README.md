@@ -8,11 +8,12 @@ in addition to OneOfEleven enhancements and changes,
 
 ## RE3CON changes:
 
-- Changed: Full freq range of BK4819 for TX and RX: 14MHz ~ 630MHz and 760MHz ~ 1879 MHz 
-- Added: "ENABLE_TX_UNLOCK" function
+- Changed: Full freq range of BK4819 max. outside specs for TX and RX: Band 1: 14 MHz to 665 MHz and Band 2: 745 MHz to 1899,5 MHz. 
 - Added: A 2nd ToneBurst 1050Hz and 1750Hz = PTT + Sidekey 1, PTT + Sidekey 2.
 - Changed: NOAA channels to first 10 PMR channels
 - Changed: Github Compiler arm-none-eabi-gcc to newer Version 11.3.Rel1 save some kb VS. latest Version and older Ver. 10.3.1
+
+  ENABLE_TX_UNLOCK is now obsolete because 1o11 added it now too, renamed as ENABLE_TX_UNLOCK_MENU 
 
 Use this firmware/code ENTIRELY at your own risk. This firmware is totally experimental, and at times will go completely tits up (break your radio).
 
@@ -67,7 +68,7 @@ ENABLE_MUTE_RADIO_FOR_VOICE      := 1       mute the radios audio when a voice i
 ENABLE_VOX                       := 0       voice operated transmission
 ENABLE_VOX_MORE_SENSITIVE        := 1       make VOX more sensitive
 ENABLE_ALARM                     := 0       TX alarms
-ENABLE_1750HZ                    := 0       side key 1750Hz TX tone (older style repeater access)
+ENABLE_1750HZ                    := 1       side key 1750Hz TX tone (older style repeater access) and 1050Hz tone.
 ENABLE_MDC1200                   := 0       enable MDC1200 TX/RX + menu TX option
 ENABLE_MDC1200_SHOW_OP_ARG       := 1       show RX opcode and argument values when MDC1200 is RX'ed
 ENABLE_MDC1200_SIDE_BEEP         := 1       enable short side tone/beep when MDC1200 is sent - so user knows when they can start taking after PTT pressed
@@ -79,9 +80,9 @@ ENABLE_SHOW_FREQS_CHAN           := 1       show the channel name under the freq
 ENABLE_SMALL_BOLD                := 1       bold channel name/no. (when name + freq channel display mode)
 ENABLE_TRIM_TRAILING_ZEROS       := 1       trim away any trailing zeros on frequencies
 ENABLE_WIDE_RX                   := 1       full 18MHz to 1300MHz RX (though front-end/PA not designed for full range)
-ENABLE_TX_WHEN_AM                := 0       allow TX (always FM) when RX is set to AM
+ENABLE_TX_WHEN_AM                := 1       allow TX (always FM) when RX is set to AM
 ENABLE_F_CAL_MENU                := 0       enable frequency calibration hidden menu
-ENABLE_TX_UNLOCK_MENU            := 0       allow TX everywhere.. TX harmonic content will cause interference to other services, do so entirely at your own risk !
+ENABLE_TX_UNLOCK_MENU            := 1       allow TX everywhere.. TX harmonic content will cause interference to other services, do so entirely at your own risk !
 ENABLE_TX_POWER_CAL_MENU         := 0       used to compute the TX power register values .. leave at '0'
 ENABLE_TX_POWER_FIX              := 1       fix the TX output power, L ~ 10mW, M ~ 500mW, H ~ 4W, U ~ user settable
 ENABLE_CTCSS_TAIL_PHASE_SHIFT    := 0       standard CTCSS tail phase shift rather than QS's own 55Hz tone method
