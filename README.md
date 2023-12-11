@@ -118,13 +118,13 @@ ENABLE_SINGLE_VFO_CHAN           := 0       not yet complete
 * Long-press 'M' ... Remove current frequency from ignore list (only if it's in the ignore frequency list)
 * Long-press 'M' ... Copy current frequency into a channel (takes you into the channel save menu)
 * Long-press 'M' ... Copy current channel into the same VFO, then switch the VFO to frequency mode
-*
+
 * Long-press '5' ... Toggle selected channel scanlist setting (if NOAA is disabled in Makefile)
-* or
+  or
 * Long-press '7' ... Toggle selected channel scanlist setting (if VOX  is disabled in Makefile)
-*
+
 * Long-press '*' ... Start scanning, then toggles the scanning between scanlists 1, 2 or ALL channels
-*
+
 * Short-press '*' .. Add current frequency to the frequency ignore list (only if in frequency scan mode)
 
 # Edit channel/memory name
@@ -167,7 +167,7 @@ When you're editing the name, you can enter digits (0 ~ 9) directly without havi
 
 arm-none-eabi GCC version 11.3.Rel1 is recommended, which is the best version on latest Ubuntu.
 Other versions may generate a flash file that is too big.
-You can get an appropriate version from: https://developer.arm.com/downloads/-/gnu-rm
+You can get an appropriate version from: https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads#panel6a
 
 clang may be used but isn't fully supported. Resulting binaries may also be bigger.
 You can get it from: https://releases.llvm.org/download.html
@@ -183,7 +183,7 @@ make
 To compile directly in windows without the need of a linux virtual machine:
 
 ```
-1. Download and install "gcc-arm-none-eabi-10.3-2021.10-win32.exe" from https://developer.arm.com/downloads/-/gnu-rm
+1. Download and install "arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi.exe" from https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi.exe?rev=674f6ef06614499dad033db88c3452b3&hash=11B71993F9DA4B77974E9E8AE6EEF366
 2. Download and install "gnu_make-3.81.exe" from https://gnuwin32.sourceforge.net/packages/make.htm
 3. If need be (probably not), also download Dependency.zip that includes the library files from https://gnuwin32.sourceforge.net/packages/make.htm
 
