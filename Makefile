@@ -80,10 +80,10 @@ ENABLE_RX_SIGNAL_BAR             := 1
 # Tx Audio Bar 300 B
 ENABLE_TX_AUDIO_BAR              := 1
 # Side Button Menu 300 B
-ENABLE_SIDE_BUTT_MENU            := 0
+ENABLE_SIDE_BUTT_MENU            := 1
 # Key Lock 400 B
 ENABLE_KEYLOCK                   := 0
-ENABLE_PANADAPTER                := 0
+ENABLE_PANADAPTER                := 1
 ENABLE_PANADAPTER_PEAK_FREQ      := 0
 # single VFO 1.4 kB
 ENABLE_SINGLE_VFO_CHAN           := 0
