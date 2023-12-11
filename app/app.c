@@ -2852,7 +2852,7 @@ static void APP_process_key(const key_code_t Key, const bool key_pressed, const 
 					BK4819_set_scrambler(0);
 
 					if (Code == 0xFE)
-						BK4819_TransmitTone(g_eeprom.config.setting.dtmf.side_tone, 1750);
+						BK4819_TransmitTone(g_eeprom.config.setting.dtmf.side_tone, 1050); //1750 Hz 1st and 2nd Ton burst, changed 2nd ToneBurst to 1050 Hz
 					else
 						BK4819_PlayDTMFEx(g_eeprom.config.setting.dtmf.side_tone, Code);
 				}
