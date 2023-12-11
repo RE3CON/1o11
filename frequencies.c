@@ -27,8 +27,8 @@ uint32_t g_aircopy_freq = 41002500;
 const freq_band_table_t AIR_BAND = {10800000, 13700000};
 
 // the BK4819 has 2 bands it covers, 18MHz ~ 630MHz and 760MHz ~ 1300MHz
-const freq_band_table_t BX4819_BAND1 = { 1800000,  63000000};
-const freq_band_table_t BX4819_BAND2 = {84000000, 130000000};
+const freq_band_table_t BX4819_BAND1 = { 1400000,  66500000};
+const freq_band_table_t BX4819_BAND2 = {74500000, 189950000};
 
 const freq_band_table_t FREQ_BAND_TABLE[7] =
 {
@@ -56,16 +56,16 @@ const freq_band_table_t FREQ_BAND_TABLE[7] =
 #ifdef ENABLE_NOAA
 	const uint32_t NOAA_FREQUENCY_TABLE[10] =
 	{
-		16255000,
-		16240000,
-		16247500,
-		16242500,
-		16245000,
-		16250000,
-		16252500,
-		16152500,
-		16177500,
-		16327500
+		44600625,
+		44601875,
+		44603125,
+		44604375,
+		44605625,
+		44606875,
+		44608125,
+		44609375,
+		44610625,
+		44611875
 	};
 #endif
 
@@ -263,10 +263,10 @@ int FREQUENCY_tx_freq_check(const uint32_t Frequency)
 		return -1;  // BX radio chip does not work in this range
 
 	if (Frequency >= AIR_BAND.lower && Frequency < AIR_BAND.upper)
-		return -1;  // TX not allowed in the airband
+		return 0;  // TX allowed in the airband
 
 	if (Frequency < FREQ_BAND_TABLE[0].lower || Frequency > FREQ_BAND_TABLE[ARRAY_SIZE(FREQ_BAND_TABLE) - 1].upper)
-		return -1;  // TX not allowed outside this range
+		return 0;  // TX allowed outside this range
 
 	switch (g_eeprom.config.setting.freq_lock)
 	{
