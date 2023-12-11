@@ -11,6 +11,8 @@ in addition to OneOfEleven enhancements and changes,
 - Changed: Full freq range of BK4819 for TX and RX: 14MHz ~ 630MHz and 760MHz ~ 1879 MHz 
 - Added: "ENABLE_TX_UNLOCK" function
 - Added: A 2nd ToneBurst 1050Hz and 1750Hz = PTT + Sidekey 1, PTT + Sidekey 2.
+- Changed: NOAA channels to first 10 PMR channels
+- Changed: Github Compiler arm-none-eabi-gcc to newer Version 11.3.Rel1 save some kb VS. latest Version and older Ver. 10.3.1
 
 Use this firmware/code ENTIRELY at your own risk. This firmware is totally experimental, and at times will go completely tits up (break your radio).
 
@@ -162,7 +164,7 @@ When you're editing the name, you can enter digits (0 ~ 9) directly without havi
 
 # Compiler
 
-arm-none-eabi GCC version 10.3.1 is recommended, which is the current version on Ubuntu 22.04.03 LTS.
+arm-none-eabi GCC version 11.3.Rel1 is recommended, which is the best version on latest Ubuntu.
 Other versions may generate a flash file that is too big.
 You can get an appropriate version from: https://developer.arm.com/downloads/-/gnu-rm
 
