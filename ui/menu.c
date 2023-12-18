@@ -387,12 +387,12 @@ const char g_sub_menu_side_butt[9][16] =
 	"VOX\non\\off",
 	"ALARM\non\\off",
 	"FM RADIO\non\\off",
-	"TX\nTONEHz",
+	"TX\n1750Hz",
 //	"2nd PTT",
 };
 #endif
 
-const char back_light_str[] = "BACKLITE\n";
+const char back_light_str[] = "BACKLIGHT\n";
 
 // ***************************************************************************************
 
