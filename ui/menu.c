@@ -387,7 +387,7 @@ const char g_sub_menu_side_butt[9][16] =
 	"VOX\non\\off",
 	"ALARM\non\\off",
 	"FM RADIO\non\\off",
-	"TX\n1750Hz",
+	"TX\nTONEHz",
 //	"2nd PTT",
 };
 #endif
