@@ -42,7 +42,7 @@ ENABLE_BIG_FREQ                  := 0
 ENABLE_DTMF_LIVE_DECODER         := 0
 ENABLE_SHOW_FREQS_CHAN           := 1
 # smaa bolf 580 B
-ENABLE_SMALL_BOLD                := 1
+ENABLE_SMALL_BOLD                := 0
 # smallest font 2 kB
 ENABLE_SMALLEST_FONT             := 0
 # trim trailing 44 B
@@ -52,7 +52,7 @@ ENABLE_TX_WHEN_AM                := 1
 # Freq calibration 188 B
 ENABLE_F_CAL_MENU                := 0
 ENABLE_TX_UNLOCK_MENU            := 1
-#ENABLE_TX_POWER_CAL_MENU        := 1
+ENABLE_TX_POWER_CAL_MENU        := 1
 ENABLE_TX_POWER_FIX              := 1
 ENABLE_CTCSS_TAIL_PHASE_SHIFT    := 1
 ENABLE_CONTRAST                  := 0
